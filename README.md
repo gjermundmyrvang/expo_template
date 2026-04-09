@@ -18,7 +18,7 @@
 
 ## Adjusting Theme Guide
 
-1. Visit: https://themegenerator.gjermundmyrvang.com/
+1. Visit this page: [Theme Generator](https://themegenerator.gjermundmyrvang.com/)
 2. Create your theme
 3. Scroll down to the `globals.css` output
 4. Copy **only the colors** from the output and paste them into your `globals.css` in this app using this structure (example):
