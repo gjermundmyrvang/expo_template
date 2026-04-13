@@ -1,9 +1,11 @@
 import { useTheme } from "@/src/theme";
 import { Ionicons } from "@expo/vector-icons";
+import { isLiquidGlassAvailable } from "expo-glass-effect";
 import { Link, Stack } from "expo-router";
 import React from "react";
 
 export default function ProfileLayout() {
+  const { colors } = useTheme();
   return (
     <Stack>
       <Stack.Screen
@@ -12,8 +14,13 @@ export default function ProfileLayout() {
           headerShown: true,
           title: "Profile",
           headerLargeTitleEnabled: true,
-          headerTransparent: true,
+          headerTransparent: isLiquidGlassAvailable() ? true : false,
           headerRight: () => <HeaderRightItem />,
+          headerStyle: {
+            backgroundColor: isLiquidGlassAvailable()
+              ? "transparent"
+              : colors.background,
+          },
         }}
       />
       <Stack.Screen
@@ -25,7 +32,9 @@ export default function ProfileLayout() {
           sheetGrabberVisible: true,
           sheetCornerRadius: 24,
           contentStyle: {
-            backgroundColor: "transparent",
+            backgroundColor: isLiquidGlassAvailable()
+              ? "transparent"
+              : colors.background,
           },
         }}
       />
@@ -37,6 +46,11 @@ export default function ProfileLayout() {
           headerLargeTitleEnabled: true,
           headerTransparent: true,
           headerBackVisible: true,
+          headerStyle: {
+            backgroundColor: isLiquidGlassAvailable()
+              ? "transparent"
+              : colors.background,
+          },
         }}
       />
     </Stack>
