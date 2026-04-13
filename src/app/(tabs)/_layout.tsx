@@ -1,5 +1,10 @@
 import { useTheme } from "@/src/theme";
-import { Icon, Label, NativeTabs } from "expo-router/unstable-native-tabs";
+import {
+  Badge,
+  Icon,
+  Label,
+  NativeTabs,
+} from "expo-router/unstable-native-tabs";
 
 export default function TabLayout() {
   const { colors } = useTheme();
@@ -9,13 +14,14 @@ export default function TabLayout() {
         <Label>Home</Label>
         <Icon
           sf="house.fill"
-          drawable="custom_android_drawable"
+          drawable="ic_menu_today"
           selectedColor={colors.primary}
         />
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="profile">
-        <Icon sf="person" drawable="person" selectedColor={colors.primary} />
+        <Icon sf="person" drawable="ic_menu" selectedColor={colors.primary} />
         <Label>Profile</Label>
+        <Badge />
       </NativeTabs.Trigger>
     </NativeTabs>
   );
